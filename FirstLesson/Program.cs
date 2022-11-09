@@ -1,23 +1,41 @@
-﻿var intarray = new int[] { 1, 2, 3,4,5,6,7,8,9,10,11 };
-var footballShirts = new List<FootballShirt>(); 
-foreach (var item in intarray)
+﻿using System.Threading.Channels;
+using FirstLesson;
+using FirstLesson.Teams;
+
+var teamNames = new string[]
 {
-    var shirt = new FootballShirt(item);
-    footballShirts.Add(shirt);
-}
-var match1 = new Match("Chelsea", "Liverpool", footballShirts);
-match1.Start();
-var winnerForFirst = match1.GetWinner();
+    "Napoli", "Liverpool", "Chelsea", "Arsenal",
+    "Porto", "Barcelona", "Real Madrid", "Atletico Madrid", "Sevilia", "Milan", "Inter", "Karabagh", "PSG", "Lyon",
+    "Manchester City", "Bayern"
+};
+
+var basketballNames = new string[] { "Lakers", "Miami", "Dallas", "Toronto" };
+
+var teams = basketballNames.Select(x => new BasketballTeam(x)).ToList();
+var tournament = new Tournament<BasketballTeam>("Uefa Champions League", teams);
+var winner = tournament.GetWinnerRecursive();
+Console.WriteLine($"winner is {winner.Name}");
 
 
-var match2 = new Match("Barcelona", "Real Madrid", footballShirts);
-match2.Start();
 
-var winnerForSecond = match2.GetWinner();
 
-Console.WriteLine("Final");
+//var b = teamNames[a];
 
-var final = new Match(winnerForFirst,winnerForSecond);
-final.Start();
-
-var finalUclWinner = final.GetWinner();
+// var length = teamNames.Length;
+//
+// var match1 = new Match("Chelsea", "Liverpool");
+// match1.Start();
+// var winnerForFirst = match1.GetWinner();
+//
+//
+// var match2 = new Match("Barcelona", "Real Madrid");
+// match2.Start();
+//
+// var winnerForSecond = match2.GetWinner();
+//
+// Console.WriteLine("Final");
+//
+// var final = new Match(winnerForFirst, winnerForSecond);
+// final.Start();
+//
+// var finalUclWinner = final.GetWinner();

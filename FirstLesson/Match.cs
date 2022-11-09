@@ -1,65 +1,30 @@
 ﻿using System.Security.Cryptography;
 using FirstLesson;
 
-class Match
+public class Match<TTeam> where TTeam : Team
 {
-    public Team Home;
-    public Team Away;
+    public TTeam Home;
+    public TTeam Away;
     public int HomeGoals;
     public int AwayGoals;
-    public Match(Team home, Team away)
+    public bool IsFinished;
+    public Match(TTeam home, TTeam away)
     {
         Home = home;
         Away = away;
     }
-    public Match(string home, string away, List<FootballShirt> footballShirts)
+    public Match(string home, string away)
     {
-        Home = new Team(home,footballShirts);
-        Away = new Team(away, footballShirts);
+        Home = (TTeam)Activator.CreateInstance(typeof(TTeam), new object[] { home });
+        Away = (TTeam)Activator.CreateInstance(typeof(TTeam), new object[] { away });
     }
 
-    public void Start()
+    public virtual void Start()
     {
-        HomeGoals = GenerateRandomNumber.Generate();
-        AwayGoals = GenerateRandomNumber.Generate();
-        
-        if (HomeGoals == AwayGoals)
-        {
-            ShootPenalties();
-        }
-        Console.WriteLine($"{Home.Name} {HomeGoals} - {AwayGoals} {Away.Name}");
+        HomeGoals = GenerateRandomNumber.Generate(1, 6);
+        AwayGoals = GenerateRandomNumber.Generate(1, 6);
+        IsFinished = true;
     }
+ 
 
-    public void ShootPenalties()
-    {
-        var homePenalties = GenerateRandomNumber.Generate();
-        var awayPenalties = GenerateRandomNumber.Generate();
-        if (homePenalties > awayPenalties)
-        {
-            HomeGoals = HomeGoals + 1;
-        }
-        else
-        {
-            AwayGoals = AwayGoals + 1;
-        }
-        
-    }
-
-    public Team GetWinner()
-    {
-        Team matchWinner;
-        
-        if (HomeGoals > AwayGoals)
-        {
-            matchWinner = Home;
-        }
-        else 
-        {
-            matchWinner = Away;
-            
-        }
-        Console.WriteLine(matchWinner.Name);
-
-        return matchWinner;
-    }
 }
