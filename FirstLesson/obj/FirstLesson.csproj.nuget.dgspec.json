@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aslan\\source\\repos\\FirstLesson\\FirstLesson\\FirstLesson.csproj": {}
+    "C:\\Users\\aslan\\source\\repos\\Sport\\FirstLesson\\FirstLesson.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aslan\\source\\repos\\FirstLesson\\FirstLesson\\FirstLesson.csproj": {
+    "C:\\Users\\aslan\\source\\repos\\Sport\\FirstLesson\\FirstLesson.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aslan\\source\\repos\\FirstLesson\\FirstLesson\\FirstLesson.csproj",
+        "projectUniqueName": "C:\\Users\\aslan\\source\\repos\\Sport\\FirstLesson\\FirstLesson.csproj",
         "projectName": "FirstLesson",
-        "projectPath": "C:\\Users\\aslan\\source\\repos\\FirstLesson\\FirstLesson\\FirstLesson.csproj",
+        "projectPath": "C:\\Users\\aslan\\source\\repos\\Sport\\FirstLesson\\FirstLesson.csproj",
         "packagesPath": "C:\\Users\\aslan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aslan\\source\\repos\\FirstLesson\\FirstLesson\\obj\\",
+        "outputPath": "C:\\Users\\aslan\\source\\repos\\Sport\\FirstLesson\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aslan\\AppData\\Roaming\\NuGet\\NuGet.Config",
