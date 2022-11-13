@@ -1,23 +1,23 @@
 ﻿namespace FirstLesson;
 
-public class Tournament<TTeam> where TTeam : Team
+public class Tournament
 {
     private string Name;
-    private List<TTeam> Teams;
-    private List<TTeam> CurrentTeams;
-    public Tournament(string name, List<TTeam> teams)
+    private List<Team> Teams;
+    private List<Team> CurrenTeams;
+    public Tournament(string name, List<Team> teams)
     {
         Name = name;
         Teams = teams;
-        CurrentTeams = teams;
+        CurrenTeams = teams;
     }
 
-    private List<Match<TTeam>> Draw()
+    private List<Match> Draw()
     {
-        var matches = new List<Match<TTeam>>();
-        while (CurrentTeams.Count > 0)
+        var matches = new List<Match>();
+        while (CurrenTeams.Count > 0)
         {
-            var match = GenerateRandomMatch.GenerateMatch(CurrentTeams);
+            var match = GenerateRandomMatch.GenerateMatch(CurrenTeams);
             matches.Add(match);
         }
 
@@ -25,21 +25,21 @@ public class Tournament<TTeam> where TTeam : Team
     }
     public Team GetWinnerRecursive()
     {
-        if (CurrentTeams.Count == 1)
-            return CurrentTeams.First();
+        if (CurrenTeams.Count == 1)
+            return CurrenTeams.First();
         
-        var matches = CurrentTeams.Count == 2 ? 
+        var matches = CurrenTeams.Count == 2 ? 
             new [] 
-            { new Match<TTeam>(CurrentTeams.First(), CurrentTeams.Last())}
+            { new Match(CurrenTeams.First(), CurrenTeams.Last())}
             .ToList()  
             : Draw();
         if (matches.Count == 1)
         {
             
             var incompleteMatch = matches.First();
-            var final = new FinalMatch<TTeam>(incompleteMatch.Home, incompleteMatch.Away);
+            var final = new FinalMatch(incompleteMatch.Home, incompleteMatch.Away);
             final.Start();
-            CurrentTeams = new [] {final.GetWinner()}.ToList();
+            CurrenTeams = new [] {final.GetWinner()}.ToList();
             var penaltiesScore = final?.PenaltySeries != null ? final.PenaltySeries.GetScore() : string.Empty;  
             Console.WriteLine($"{final.Home.Name} {final.HomeGoals} - {final.AwayGoals} {final.Away.Name} {penaltiesScore}");
             
@@ -48,14 +48,14 @@ public class Tournament<TTeam> where TTeam : Team
 
         else
         {
-            var playoffRounds = matches.Select(x => new PlayoffRound<TTeam>(x)).ToList();
+            var playoffRounds = matches.Select(x => new PlayoffRound(x)).ToList();
 
             foreach (var playoffRound in playoffRounds)
             {
                 playoffRound.Start();
             }    
             
-            CurrentTeams = playoffRounds.Select(x => x.GetWinner()).ToList();
+            CurrenTeams = playoffRounds.Select(x => x.GetWinner()).ToList();
         }
 
         Console.WriteLine("Next Stage");

@@ -1,6 +1,4 @@
-﻿using System.Threading.Channels;
-using FirstLesson;
-using FirstLesson.Teams;
+﻿using FirstLesson;
 
 var teamNames = new string[]
 {
@@ -11,8 +9,8 @@ var teamNames = new string[]
 
 var basketballNames = new string[] { "Lakers", "Miami", "Dallas", "Toronto" };
 
-var teams = basketballNames.Select(x => new BasketballTeam(x)).ToList();
-var tournament = new Tournament<BasketballTeam>("Uefa Champions League", teams);
+var teams = teamNames.Select(x => new Team(x)).ToList();
+var tournament = new Tournament("Uefa Champions League", teams);
 var winner = tournament.GetWinnerRecursive();
 Console.WriteLine($"winner is {winner.Name}");
 

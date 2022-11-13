@@ -1,15 +1,15 @@
 ﻿namespace FirstLesson;
 
-public class PlayoffRound<TTeam> where TTeam : Team
+public class PlayoffRound
 {
-    public Match<TTeam> FirstRound;
-    public Match<TTeam> SecondRound;
-    public PenaltySeries<TTeam> PenaltySeries;
+    public Match FirstRound;
+    public Match SecondRound;
+    public PenaltySeries PenaltySeries;
 
-    public PlayoffRound(Match<TTeam> firstRound)
+    public PlayoffRound(Match firstRound)
     {
         FirstRound = firstRound;
-        SecondRound = new Match<TTeam>(FirstRound.Away, FirstRound.Home);
+        SecondRound = new Match(FirstRound.Away, FirstRound.Home);
     }
     
     // Inter (1) 4-3 (2) Liverpool Pen: 
@@ -23,7 +23,7 @@ public class PlayoffRound<TTeam> where TTeam : Team
             PrintResult();
             return;
         }
-        PenaltySeries = new PenaltySeries<TTeam>(SecondRound.Home, SecondRound.Away);
+        PenaltySeries = new PenaltySeries(SecondRound.Home, SecondRound.Away);
         PenaltySeries.Start(1, 6);
         PrintResult();
     }
@@ -36,7 +36,7 @@ public class PlayoffRound<TTeam> where TTeam : Team
                           $"{penalties} [{GetWinner().Name}]");
     }
     
-    private TTeam GetWinnerWithoutPenalties()
+    private Team GetWinnerWithoutPenalties()
     {
         var sumOfGoalsFirst = FirstRound.HomeGoals + SecondRound.AwayGoals;
         var sumOfGoalsSecond = SecondRound.HomeGoals + FirstRound.AwayGoals;
@@ -44,7 +44,7 @@ public class PlayoffRound<TTeam> where TTeam : Team
             sumOfGoalsFirst < sumOfGoalsSecond ? FirstRound.Away : null;
         return winner;
     }
-    public TTeam GetWinner()
+    public Team GetWinner()
     {
         if (!FirstRound.IsFinished || !SecondRound.IsFinished)
             throw new InvalidOperationException("");

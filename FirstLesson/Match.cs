@@ -1,22 +1,22 @@
 ﻿using System.Security.Cryptography;
 using FirstLesson;
 
-public class Match<TTeam> where TTeam : Team
+public class Match
 {
-    public TTeam Home;
-    public TTeam Away;
+    public Team Home;
+    public Team Away;
     public int HomeGoals;
     public int AwayGoals;
     public bool IsFinished;
-    public Match(TTeam home, TTeam away)
+    public Match(Team home, Team away)
     {
         Home = home;
         Away = away;
     }
     public Match(string home, string away)
     {
-        Home = (TTeam)Activator.CreateInstance(typeof(TTeam), new object[] { home });
-        Away = (TTeam)Activator.CreateInstance(typeof(TTeam), new object[] { away });
+        Home = (Team)Activator.CreateInstance(typeof(Team), new object[] { home });
+        Away = (Team)Activator.CreateInstance(typeof(Team), new object[] { away });
     }
 
     public virtual void Start()

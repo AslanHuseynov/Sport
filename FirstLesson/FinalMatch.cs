@@ -1,8 +1,8 @@
 ﻿namespace FirstLesson;
 
-public class FinalMatch<TTeam> : Match<TTeam> where TTeam : Team
+public class FinalMatch : Match
 {
-    public FinalMatch(TTeam home, TTeam away) 
+    public FinalMatch(Team home, Team away) 
         : base(home, away)
     {
     }
@@ -12,19 +12,19 @@ public class FinalMatch<TTeam> : Match<TTeam> where TTeam : Team
     }
 
 
-    public PenaltySeries<TTeam> PenaltySeries;
+    public PenaltySeries PenaltySeries;
 
     public override void Start()
     {
         base.Start();
         if (HomeGoals == AwayGoals)
         {
-            PenaltySeries = new PenaltySeries<TTeam>(Home, Away);
+            PenaltySeries = new PenaltySeries(Home, Away);
             PenaltySeries.Start(1, 6);
         }
     }
 
-    public TTeam GetWinner() 
+    public Team GetWinner() 
     {
         if (!IsFinished)
             throw new InvalidOperationException("The match has yet to start!");

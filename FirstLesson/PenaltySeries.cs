@@ -1,14 +1,14 @@
 ﻿namespace FirstLesson;
 
-public class PenaltySeries<TTeam> where TTeam : Team
+public class PenaltySeries
 {
-    public TTeam TeamFirst;
-    public TTeam TeamSecond;
+    public Team TeamFirst;
+    public Team TeamSecond;
 
     public int FirstGoals;
     public int SecondGoals;
 
-    public PenaltySeries(TTeam teamFirst, TTeam teamSecond)
+    public PenaltySeries(Team teamFirst, Team teamSecond)
     {
         TeamFirst = teamFirst;
         TeamSecond = teamSecond;

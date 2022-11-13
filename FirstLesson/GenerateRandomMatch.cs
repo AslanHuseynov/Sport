@@ -12,10 +12,10 @@ public static class GenerateRandomMatch
         return randomElement;
     }
 
-    public static Match<TTeam> GenerateMatch<TTeam>(List<TTeam> teams) where TTeam : Team
+    public static Match GenerateMatch(List<Team> teams)
     {
         var home = GetOpponent(teams);
         var away = GetOpponent(teams);
-        return new Match<TTeam>(home, away);
+        return new Match(home, away);
     }
 }
