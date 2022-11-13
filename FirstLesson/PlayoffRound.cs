@@ -15,8 +15,8 @@ public class PlayoffRound
     // Inter (1) 4-3 (2) Liverpool Pen: 
     public void Start()
     {
-        FirstRound.Start();
-        SecondRound.Start();
+        //FirstRound.Start();
+        //SecondRound.Start();
         var winner = GetWinnerWithoutPenalties();
         if (winner != null)
         { 

@@ -1,6 +1,22 @@
 ﻿using FirstLesson;
+using FirstLesson.Matches;
 using FirstLesson.Teams;
 
+
+
+//var match = new Match(new BasketballTeam("Warriors"), new BasketballTeam("Lakers"));
+//match.Start();
+
+var match = new BasketballMatch(new BasketballTeam("Bucks"), new BasketballTeam("Dallas"));
+match.Start();
+
+var match2 = new BasketballMatch(new FootballTeam("Liverpool"), new FootballTeam("Chelsea"));
+match2.Start();
+
+Console.WriteLine($"{match.Home.Name} {match.HomeGoals}-{match.AwayGoals} {match.Away.Name}");
+
+
+return;
 
 
 var teamNames = new string[]

@@ -16,7 +16,7 @@ public class FinalMatch : Match
 
     public void Start()
     {
-        base.Start();
+        //base.Start();
         if (HomeGoals == AwayGoals)
         {
             PenaltySeries = new PenaltySeries(Home, Away);

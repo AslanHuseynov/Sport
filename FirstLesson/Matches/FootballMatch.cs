@@ -11,5 +11,10 @@ namespace FirstLesson.Matches
         public FootballMatch(Team home, Team away) : base(home, away)
         {
         }
+
+        public override void Start()
+        {
+            Start(1, 10);
+        }
     }
 }

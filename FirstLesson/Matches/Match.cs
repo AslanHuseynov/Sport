@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using FirstLesson;
 
-public class Match
+public  class Match
 {
     public Team Home;
     public Team Away;
@@ -19,12 +19,18 @@ public class Match
         Away = new Team(away);
     }
 
-    public void Start()
+    public virtual void Start()
     {
-        HomeGoals = GenerateRandomNumber.Generate(1, 6);
-        AwayGoals = GenerateRandomNumber.Generate(1, 6);
+
+    }
+
+
+    public void Start(int start, int end)
+    {
+        HomeGoals = GenerateRandomNumber.Generate(start, end);
+        AwayGoals = GenerateRandomNumber.Generate(start, end);
         IsFinished = true;
     }
- 
+
 
 }
