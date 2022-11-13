@@ -15,11 +15,11 @@ public class Match
     }
     public Match(string home, string away)
     {
-        Home = (Team)Activator.CreateInstance(typeof(Team), new object[] { home });
-        Away = (Team)Activator.CreateInstance(typeof(Team), new object[] { away });
+        Home = new Team(home);
+        Away = new Team(away);
     }
 
-    public virtual void Start()
+    public void Start()
     {
         HomeGoals = GenerateRandomNumber.Generate(1, 6);
         AwayGoals = GenerateRandomNumber.Generate(1, 6);

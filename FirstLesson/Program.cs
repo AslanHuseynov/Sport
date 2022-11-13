@@ -1,4 +1,7 @@
 ﻿using FirstLesson;
+using FirstLesson.Teams;
+
+
 
 var teamNames = new string[]
 {
@@ -7,7 +10,6 @@ var teamNames = new string[]
     "Manchester City", "Bayern"
 };
 
-var basketballNames = new string[] { "Lakers", "Miami", "Dallas", "Toronto" };
 
 var teams = teamNames.Select(x => new Team(x)).ToList();
 var tournament = new Tournament("Uefa Champions League", teams);

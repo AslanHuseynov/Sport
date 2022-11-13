@@ -14,7 +14,7 @@ public class FinalMatch : Match
 
     public PenaltySeries PenaltySeries;
 
-    public override void Start()
+    public void Start()
     {
         base.Start();
         if (HomeGoals == AwayGoals)
