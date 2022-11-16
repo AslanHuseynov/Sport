@@ -31,15 +31,15 @@ public class PlayoffRound
     private void PrintResult()
     {
         var penalties = PenaltySeries != null ? PenaltySeries.GetScore() : string.Empty;
-        Console.WriteLine($"{FirstRound.Away.Name} ({FirstRound.AwayGoals}) {FirstRound.AwayGoals + SecondRound.HomeGoals} -" +
-                          $" {FirstRound.HomeGoals + SecondRound.AwayGoals} ({FirstRound.HomeGoals}) {FirstRound.Home.Name} " +
+        Console.WriteLine($"{FirstRound.Away.Name} ({FirstRound.AwayScore}) {FirstRound.AwayScore + SecondRound.HomeScore} -" +
+                          $" {FirstRound.HomeScore + SecondRound.AwayScore} ({FirstRound.HomeScore}) {FirstRound.Home.Name} " +
                           $"{penalties} [{GetWinner().Name}]");
     }
     
     private Team GetWinnerWithoutPenalties()
     {
-        var sumOfGoalsFirst = FirstRound.HomeGoals + SecondRound.AwayGoals;
-        var sumOfGoalsSecond = SecondRound.HomeGoals + FirstRound.AwayGoals;
+        var sumOfGoalsFirst = FirstRound.HomeScore + SecondRound.AwayScore;
+        var sumOfGoalsSecond = SecondRound.HomeScore + FirstRound.AwayScore;
         var winner = sumOfGoalsFirst > sumOfGoalsSecond ? FirstRound.Home :
             sumOfGoalsFirst < sumOfGoalsSecond ? FirstRound.Away : null;
         return winner;

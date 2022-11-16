@@ -41,7 +41,7 @@ public class Tournament
             final.Start();
             CurrenTeams = new [] {final.GetWinner()}.ToList();
             var penaltiesScore = final?.PenaltySeries != null ? final.PenaltySeries.GetScore() : string.Empty;  
-            Console.WriteLine($"{final.Home.Name} {final.HomeGoals} - {final.AwayGoals} {final.Away.Name} {penaltiesScore}");
+            Console.WriteLine($"{final.Home.Name} {final.HomeScore} - {final.AwayScore} {final.Away.Name} {penaltiesScore}");
             
         }
 

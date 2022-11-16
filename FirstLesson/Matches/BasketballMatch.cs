@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstLesson.Teams;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,18 @@ using System.Threading.Tasks;
 
 namespace FirstLesson.Matches
 {
-    public class BasketballMatch : Match
+    public class BasketballMatch : Match<BasketballTeam>
     {
-        public BasketballMatch(Team home, Team away) : base(home, away)
+        public BasketballMatch(BasketballTeam home, BasketballTeam away) : base(home, away)
         {
         }
 
         public override void Start()
         {
-            Start(50,150);
+            
+            Start(50, 150);
         }
+
 
     }
 }

@@ -7,13 +7,17 @@ using FirstLesson.Teams;
 //var match = new Match(new BasketballTeam("Warriors"), new BasketballTeam("Lakers"));
 //match.Start();
 
-var match = new BasketballMatch(new BasketballTeam("Bucks"), new BasketballTeam("Dallas"));
+
+
+var match = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Barcelona"));
 match.Start();
 
-var match2 = new BasketballMatch(new FootballTeam("Liverpool"), new FootballTeam("Chelsea"));
+var match2 = new BasketballMatch(new BasketballTeam("Dallas"), new BasketballTeam("Miami"));
 match2.Start();
 
-Console.WriteLine($"{match.Home.Name} {match.HomeGoals}-{match.AwayGoals} {match.Away.Name}");
+
+Console.WriteLine($"{match.Home.Name} {match.HomeScore}-{match.AwayScore} {match.Away.Name}");
+Console.WriteLine($"{match2.Home.Name} {match2.HomeScore}-{match2.AwayScore} {match2.Away.Name}");
 
 
 return;

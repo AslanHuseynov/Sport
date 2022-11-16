@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstLesson.Teams;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FirstLesson.Matches
 {
-    public class FootballMatch : Match
+    public class FootballMatch : Match<FootballTeam>
     {
-        public FootballMatch(Team home, Team away) : base(home, away)
+        public FootballMatch(FootballTeam home, FootballTeam away) : base(home, away)
         {
         }
 

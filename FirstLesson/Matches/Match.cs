@@ -1,36 +1,24 @@
-﻿using System.Security.Cryptography;
-using FirstLesson;
+﻿using FirstLesson;
 
-public  class Match
+public abstract class Match<TTeam> where TTeam : Team
 {
-    public Team Home;
-    public Team Away;
-    public int HomeGoals;
-    public int AwayGoals;
+    public TTeam Home;
+    public TTeam Away;
+    public int HomeScore;
+    public int AwayScore;
     public bool IsFinished;
-    public Match(Team home, Team away)
+
+    public Match(TTeam home, TTeam away) 
     {
         Home = home;
         Away = away;
     }
-    public Match(string home, string away)
-    {
-        Home = new Team(home);
-        Away = new Team(away);
-    }
-
-    public virtual void Start()
-    {
-
-    }
-
-
+    public abstract void Start();
     public void Start(int start, int end)
     {
-        HomeGoals = GenerateRandomNumber.Generate(start, end);
-        AwayGoals = GenerateRandomNumber.Generate(start, end);
+        HomeScore = GenerateRandomNumber.Generate(start, end);
+        AwayScore = GenerateRandomNumber.Generate(start, end);
         IsFinished = true;
     }
-
-
 }
+
