@@ -1,13 +1,23 @@
-﻿namespace FirstLesson;
+﻿using FirstLesson.Matches;
+using FirstLesson.Rules;
+
+namespace FirstLesson;
 
 public class PlayoffRound<TTeam> where TTeam : Team
 {
+    public List<Match<TTeam>> Rounds;
     public Match<TTeam> FirstRound;
     public Match<TTeam> SecondRound;
     public PenaltySeries PenaltySeries;
+    public PlayoffRules Rules;
 
-    public PlayoffRound(Match<TTeam> firstRound)
+
+    public PlayoffRound(Match<TTeam> firstRound, PlayoffRules rules)
     {
+        Rules = rules;
+        var range = Enumerable.Range(1, rules.GameQunatity.MinQuantity);
+
+        //Rounds.Add(firstRound.Reverse());
         FirstRound = firstRound;
         SecondRound = FirstRound.Reverse();
     }
