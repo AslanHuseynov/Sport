@@ -10,14 +10,12 @@ using FirstLesson.Teams;
 
 
 var match = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Barcelona"));
-match.Start();
+var playoff = new PlayoffRound<FootballTeam>(match);
+playoff.Start();
 
 var match2 = new BasketballMatch(new BasketballTeam("Dallas"), new BasketballTeam("Miami"));
-match2.Start();
-
-
-Console.WriteLine($"{match.Home.Name} {match.HomeScore}-{match.AwayScore} {match.Away.Name}");
-Console.WriteLine($"{match2.Home.Name} {match2.HomeScore}-{match2.AwayScore} {match2.Away.Name}");
+var playoff2 = new PlayoffRound<BasketballTeam>(match2);
+playoff2.Start();
 
 
 return;
@@ -31,10 +29,14 @@ var teamNames = new string[]
 };
 
 
-var teams = teamNames.Select(x => new Team(x)).ToList();
-var tournament = new Tournament("Uefa Champions League", teams);
-var winner = tournament.GetWinnerRecursive();
-Console.WriteLine($"winner is {winner.Name}");
+var footballTeams = teamNames.Select(x => new FootballTeam(x)).ToList();
+var mat = GenerateRandomMatch.GenerateMatch<FootballMatch, FootballTeam>(footballTeams);
+
+
+var a = 5;
+//var tournament = new Tournament("Uefa Champions League", teams);
+//var winner = tournament.GetWinnerRecursive();
+//Console.WriteLine($"winner is {winner.Name}");
 
 
 

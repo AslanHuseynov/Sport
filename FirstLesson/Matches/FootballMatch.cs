@@ -13,6 +13,11 @@ namespace FirstLesson.Matches
         {
         }
 
+        public override Match<FootballTeam> Reverse()
+        {
+            return new FootballMatch(Away, Home);
+        }
+
         public override void Start()
         {
             Start(1, 10);

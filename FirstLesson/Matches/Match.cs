@@ -20,5 +20,7 @@ public abstract class Match<TTeam> where TTeam : Team
         AwayScore = GenerateRandomNumber.Generate(start, end);
         IsFinished = true;
     }
+
+    public abstract Match<TTeam> Reverse();
 }
 

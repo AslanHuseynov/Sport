@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text.RegularExpressions;
 
 namespace FirstLesson;
 
@@ -12,10 +13,18 @@ public static class GenerateRandomMatch
         return randomElement;
     }
 
-    public static Match GenerateMatch(List<Team> teams)
+    //public static Match<T> GenerateMatch<T>(List<T> teams) where T : Team
+    //{
+    //    var home = GetOpponent(teams);
+    //    var away = GetOpponent(teams);
+    //    return new Match(home, away);
+    //}
+
+    public static TMatch GenerateMatch<TMatch, TTeam>(List<TTeam> teams) where TTeam : Team
     {
         var home = GetOpponent(teams);
         var away = GetOpponent(teams);
-        return new Match(home, away);
+        return (TMatch)Activator.CreateInstance(typeof(TMatch), new object[] { home, away });
+        //return new Match(home, away);
     }
 }

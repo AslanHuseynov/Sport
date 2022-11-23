@@ -1,25 +1,24 @@
 ﻿namespace FirstLesson;
 
-public class PlayoffRound
+public class PlayoffRound<TTeam> where TTeam : Team
 {
-    public Match FirstRound;
-    public Match SecondRound;
+    public Match<TTeam> FirstRound;
+    public Match<TTeam> SecondRound;
     public PenaltySeries PenaltySeries;
 
-    public PlayoffRound(Match firstRound)
+    public PlayoffRound(Match<TTeam> firstRound)
     {
         FirstRound = firstRound;
-        SecondRound = new Match(FirstRound.Away, FirstRound.Home);
+        SecondRound = FirstRound.Reverse();
     }
-    
-    // Inter (1) 4-3 (2) Liverpool Pen: 
+
     public void Start()
     {
-        //FirstRound.Start();
-        //SecondRound.Start();
+        FirstRound.Start();
+        SecondRound.Start();
         var winner = GetWinnerWithoutPenalties();
         if (winner != null)
-        { 
+        {
             PrintResult();
             return;
         }
@@ -35,7 +34,7 @@ public class PlayoffRound
                           $" {FirstRound.HomeScore + SecondRound.AwayScore} ({FirstRound.HomeScore}) {FirstRound.Home.Name} " +
                           $"{penalties} [{GetWinner().Name}]");
     }
-    
+
     private Team GetWinnerWithoutPenalties()
     {
         var sumOfGoalsFirst = FirstRound.HomeScore + SecondRound.AwayScore;
@@ -58,5 +57,5 @@ public class PlayoffRound
             : PenaltySeries.TeamSecond;
 
     }
-    
+
 }
