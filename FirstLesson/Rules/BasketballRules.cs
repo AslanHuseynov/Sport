@@ -2,18 +2,22 @@
 {
     public class PlayoffBasketballRules : PlayoffRules
     {
-        public override PlayoffRange GameQunatity => new PlayoffRange(4,7);
+        public override int MinGameQunatity => 3;
     }
 
-    public class PlayoffRange
-    {
-        public int MinQuantity { get; set; }
-        public int MaxQuantity { get; set; }
+    //public class PlayoffRange
+    //{
+    //    public int MinQuantity { get; set; }
+    //    public int? MaxQuantity { get; set; }
 
-        public PlayoffRange(int minQuantity, int maxQuantity)
-        {
-            MinQuantity = minQuantity;
-            MaxQuantity = maxQuantity;
-        }
-    }
+    //    public PlayoffRange(int minQuantity)
+    //    {
+    //        MinQuantity = minQuantity;
+    //    }
+    //    public PlayoffRange(int minQuantity, int maxQuantity)
+    //    {
+    //        MinQuantity = minQuantity;
+    //        MaxQuantity = maxQuantity;
+    //    }
+    //}
 }

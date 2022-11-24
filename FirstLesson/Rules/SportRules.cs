@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FirstLesson.Rules
+﻿namespace FirstLesson.Rules
 {
-    public abstract class SportRules
+    public abstract class PlayoffRules
     {
-        public abstract int GameQunatity { get; set; }
+        public abstract int MinGameQunatity { get; }
     }
 }

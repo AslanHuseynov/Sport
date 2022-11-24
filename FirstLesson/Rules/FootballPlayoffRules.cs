@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FirstLesson.Rules
+﻿namespace FirstLesson.Rules
 {
-    public class FootballRules
+    public class PlayoffFootballRules : PlayoffRules
     {
+        public override int MinGameQunatity => 1;
     }
 }

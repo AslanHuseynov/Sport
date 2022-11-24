@@ -1,4 +1,6 @@
 ﻿using FirstLesson;
+using System.Diagnostics;
+
 
 public abstract class Match<TTeam> where TTeam : Team
 {

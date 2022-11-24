@@ -1,6 +1,8 @@
 ﻿using FirstLesson;
 using FirstLesson.Matches;
+using FirstLesson.Rules;
 using FirstLesson.Teams;
+using System.Runtime.InteropServices;
 
 
 
@@ -10,11 +12,11 @@ using FirstLesson.Teams;
 
 
 var match = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Barcelona"));
-var playoff = new PlayoffRound<FootballTeam>(match);
+var playoff = new PlayoffRound<FootballTeam>(match, new PlayoffFootballRules());
 playoff.Start();
 
 var match2 = new BasketballMatch(new BasketballTeam("Dallas"), new BasketballTeam("Miami"));
-var playoff2 = new PlayoffRound<BasketballTeam>(match2);
+var playoff2 = new PlayoffRound<BasketballTeam>(match2, new PlayoffBasketballRules());
 playoff2.Start();
 
 
@@ -33,7 +35,7 @@ var footballTeams = teamNames.Select(x => new FootballTeam(x)).ToList();
 var mat = GenerateRandomMatch.GenerateMatch<FootballMatch, FootballTeam>(footballTeams);
 
 
-var a = 5;
+//var a = 5;
 //var tournament = new Tournament("Uefa Champions League", teams);
 //var winner = tournament.GetWinnerRecursive();
 //Console.WriteLine($"winner is {winner.Name}");

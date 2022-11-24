@@ -3,6 +3,12 @@ using FirstLesson.Rules;
 
 namespace FirstLesson;
 
+
+
+public class A
+{
+}
+
 public class PlayoffRound<TTeam> where TTeam : Team
 {
     public List<Match<TTeam>> Rounds;
@@ -14,9 +20,20 @@ public class PlayoffRound<TTeam> where TTeam : Team
 
     public PlayoffRound(Match<TTeam> firstRound, PlayoffRules rules)
     {
+        Rounds = new List<Match<TTeam>>();
         Rules = rules;
-        var range = Enumerable.Range(1, rules.GameQunatity.MinQuantity);
+        var range = Enumerable.Range(1, rules.MinGameQunatity);
+        Rounds.Add(firstRound);
 
+        for (int i = 0; i < range.Count(); i++)
+        {
+            if (i % 2 != 0)
+            {
+                Rounds.Add(firstRound.Reverse().Reverse());
+            }
+            else
+                Rounds.Add(firstRound.Reverse());
+        }
         //Rounds.Add(firstRound.Reverse());
         FirstRound = firstRound;
         SecondRound = FirstRound.Reverse();
@@ -24,8 +41,13 @@ public class PlayoffRound<TTeam> where TTeam : Team
 
     public void Start()
     {
-        FirstRound.Start();
-        SecondRound.Start();
+        foreach (var item in Rounds)
+        {
+            item.Start();
+        }
+
+        //FirstRound.Start();
+        //SecondRound.Start();
         var winner = GetWinnerWithoutPenalties();
         if (winner != null)
         {
@@ -55,7 +77,7 @@ public class PlayoffRound<TTeam> where TTeam : Team
     }
     public Team GetWinner()
     {
-        if (!FirstRound.IsFinished || !SecondRound.IsFinished)
+        if (!Rounds.All(x => x.IsFinished))
             throw new InvalidOperationException("");
 
         var winner = GetWinnerWithoutPenalties();
