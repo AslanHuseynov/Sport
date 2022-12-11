@@ -13,13 +13,6 @@ public static class GenerateRandomMatch
         return randomElement;
     }
 
-    //public static Match<T> GenerateMatch<T>(List<T> teams) where T : Team
-    //{
-    //    var home = GetOpponent(teams);
-    //    var away = GetOpponent(teams);
-    //    return new Match(home, away);
-    //}
-
     public static TMatch GenerateMatch<TMatch, TTeam>(List<TTeam> teams) where TTeam : Team
     {
         var home = GetOpponent(teams);

@@ -16,9 +16,9 @@ using System.Runtime.InteropServices;
 //var playoff = new PlayoffRound<FootballTeam>(match, new PlayoffFootballRules());
 //playoff.Start();
 
-var match2 = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Liverpool"));
-var playoff2 = new FootballPlayoffRound(match2);
-playoff2.Start();
+//var match2 = new FootballMatch(new FootballTeam("Dallas"), new FootballTeam("Miami"));
+//var playoff2 = new FootballPlayoffRound(match2);
+//playoff2.Start();
 
 
 
@@ -44,25 +44,3 @@ var mat = GenerateRandomMatch.GenerateMatch<FootballMatch, FootballTeam>(footbal
 //Console.WriteLine($"winner is {winner.Name}");
 
 
-
-
-//var b = teamNames[a];
-
-// var length = teamNames.Length;
-//
-// var match1 = new Match("Chelsea", "Liverpool");
-// match1.Start();
-// var winnerForFirst = match1.GetWinner();
-//
-//
-// var match2 = new Match("Barcelona", "Real Madrid");
-// match2.Start();
-//
-// var winnerForSecond = match2.GetWinner();
-//
-// Console.WriteLine("Final");
-//
-// var final = new Match(winnerForFirst, winnerForSecond);
-// final.Start();
-//
-// var finalUclWinner = final.GetWinner();
