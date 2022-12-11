@@ -20,9 +20,33 @@ namespace FirstLesson.Matches
 
         public override void Start()
         {
-            
             Start(50, 150);
         }
+        public Team GetWinner()
+        {
+            if (HomeScore > AwayScore)
+            {
+                return Home;
+            }
+
+            else if (HomeScore < AwayScore)
+            {
+                return Away;
+            }
+
+            else
+            {
+                throw new Exception("blliiad");
+            }
+        }
+
+        public string GetScore()
+        {
+            var homeFirstLetter = Home.Name.First().ToString();
+            var awayFirstLetter = Away.Name.First().ToString();
+            return $"({homeFirstLetter} {HomeScore} - {AwayScore} {awayFirstLetter})";
+        }
+
 
 
     }

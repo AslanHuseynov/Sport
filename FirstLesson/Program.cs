@@ -1,5 +1,6 @@
 ﻿using FirstLesson;
 using FirstLesson.Matches;
+using FirstLesson.Playoffs;
 using FirstLesson.Rules;
 using FirstLesson.Teams;
 using System.Runtime.InteropServices;
@@ -11,13 +12,15 @@ using System.Runtime.InteropServices;
 
 
 
-var match = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Barcelona"));
-var playoff = new PlayoffRound<FootballTeam>(match, new PlayoffFootballRules());
-playoff.Start();
+//var match = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Barcelona"));
+//var playoff = new PlayoffRound<FootballTeam>(match, new PlayoffFootballRules());
+//playoff.Start();
 
 var match2 = new BasketballMatch(new BasketballTeam("Dallas"), new BasketballTeam("Miami"));
-var playoff2 = new PlayoffRound<BasketballTeam>(match2, new PlayoffBasketballRules());
+var playoff2 = new BasketballPlayoffRound(match2);
 playoff2.Start();
+
+playoff2.PrintResult();
 
 
 return;
