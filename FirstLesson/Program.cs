@@ -16,11 +16,11 @@ using System.Runtime.InteropServices;
 //var playoff = new PlayoffRound<FootballTeam>(match, new PlayoffFootballRules());
 //playoff.Start();
 
-var match2 = new BasketballMatch(new BasketballTeam("Dallas"), new BasketballTeam("Miami"));
-var playoff2 = new BasketballPlayoffRound(match2);
+var match2 = new FootballMatch(new FootballTeam("Chelsea"), new FootballTeam("Liverpool"));
+var playoff2 = new FootballPlayoffRound(match2);
 playoff2.Start();
 
-playoff2.PrintResult();
+
 
 
 return;
